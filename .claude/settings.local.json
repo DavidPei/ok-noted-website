@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(move icons*.png .)",
+      "Bash(rmdir:*)",
+      "Bash(copy icons*.png .)",
+      "Bash(del icons*.png)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
