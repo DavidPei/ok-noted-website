@@ -138,32 +138,61 @@
                 <h2 class="section-title">See OK Noted in Action</h2>
                 <p class="section-subtitle">Real screenshots showing how OK Noted enhances your YouTube learning experience</p>
                 
-                <!-- Featured Screenshot -->
-                <div class="screenshot-featured">
-                    <div class="screenshot-item screenshot-large">
-                        <img src="images/screenshots/Youtube video + editor Screenshot.png" alt="OK Noted note-taking panel alongside YouTube video" class="screenshot-img">
-                        <div class="screenshot-caption">
-                            <h3>Note-taking panel alongside YouTube videos</h3>
-                            <p>Take notes without leaving the video page - perfect for laptop screens. The floating panel fits perfectly alongside any YouTube video.</p>
+                <!-- Screenshot Grid -->
+                <div class="screenshot-grid">
+                    <!-- Feature Overview -->
+                    <div class="screenshot-item" data-index="0">
+                        <img src="images/screenshots/screenshots feature emphasized.png" 
+                             alt="OK Noted feature overview and capabilities" 
+                             class="screenshot-img">
+                        <div class="screenshot-overlay">
+                            <span class="view-full">Click to view full size</span>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- Smaller Screenshots Grid -->
-                <div class="screenshots-grid">
-                    <div class="screenshot-item">
-                        <img src="images/screenshots/Editor Screenshot2.png" alt="OK Noted minimalist text editor" class="screenshot-img">
                         <div class="screenshot-caption">
-                            <h3>Minimalist text editor</h3>
-                            <p>Full-featured but minimalist editor with timestamps, screenshots, and easy note-taking formatting options</p>
+                            <h3>Complete Feature Overview</h3>
+                            <p>Comprehensive look at OK Noted's powerful note-taking capabilities</p>
                         </div>
                     </div>
                     
-                    <div class="screenshot-item">
-                        <img src="images/screenshots/Google Doc No Export Screenshot.png" alt="Notes automatically organized in Google Drive" class="screenshot-img">
+                    <!-- YouTube Integration -->
+                    <div class="screenshot-item" data-index="1">
+                        <img src="images/screenshots/youtube+editor screenshot2.png" 
+                             alt="OK Noted integrated with YouTube video player" 
+                             class="screenshot-img">
+                        <div class="screenshot-overlay">
+                            <span class="view-full">Click to view full size</span>
+                        </div>
                         <div class="screenshot-caption">
-                            <h3>Automatically organized in Google Drive</h3>
-                            <p>Your notes appear instantly in Google Drive with perfect formatting</p>
+                            <h3>YouTube Integration</h3>
+                            <p>Take notes directly alongside any YouTube video without leaving the page</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Google Docs Export -->
+                    <div class="screenshot-item" data-index="2">
+                        <img src="images/screenshots/googledocs screenshot2.png" 
+                             alt="Notes automatically saved to Google Docs" 
+                             class="screenshot-img">
+                        <div class="screenshot-overlay">
+                            <span class="view-full">Click to view full size</span>
+                        </div>
+                        <div class="screenshot-caption">
+                            <h3>Google Docs Integration</h3>
+                            <p>Your notes automatically sync to Google Drive with perfect formatting</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Editor Interface -->
+                    <div class="screenshot-item" data-index="3">
+                        <img src="images/screenshots/lightanddarkmodesupport1040x800.png" 
+                             alt="OK Noted text editor interface" 
+                             class="screenshot-img">
+                        <div class="screenshot-overlay">
+                            <span class="view-full">Click to view full size</span>
+                        </div>
+                        <div class="screenshot-caption">
+                            <h3>Powerful Editor</h3>
+                            <p>Full-featured editor with dark and light mode support, timestamps, screenshots, and formatting tools</p>
                         </div>
                     </div>
                 </div>
@@ -252,9 +281,126 @@
         </div>
     </footer>
 
+    <!-- Modal Lightbox -->
+    <div class="screenshot-modal" id="screenshotModal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <img class="modal-image" src="" alt="">
+            <div class="modal-caption">
+                <h3></h3>
+                <p></p>
+            </div>
+            <div class="modal-navigation">
+                <button class="nav-prev">&larr; Previous</button>
+                <button class="nav-next">Next &rarr;</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Install buttons now link directly to Chrome Web Store
         // Extension ID: ldiobfbihagcmiogahhgbafkobghgman
+
+        // Screenshot Grid Functionality
+        class ScreenshotGrid {
+            constructor() {
+                this.screenshots = [
+                    {
+                        src: 'images/screenshots/screenshots feature emphasized.png',
+                        title: 'Complete Feature Overview',
+                        description: 'Comprehensive look at OK Noted\'s powerful note-taking capabilities'
+                    },
+                    {
+                        src: 'images/screenshots/youtube+editor screenshot2.png',
+                        title: 'YouTube Integration',
+                        description: 'Take notes directly alongside any YouTube video without leaving the page'
+                    },
+                    {
+                        src: 'images/screenshots/googledocs screenshot2.png',
+                        title: 'Google Docs Integration',
+                        description: 'Your notes automatically sync to Google Drive with perfect formatting'
+                    },
+                    {
+                        src: 'images/screenshots/lightanddarkmodesupport1040x800.png',
+                        title: 'Powerful Editor',
+                        description: 'Full-featured editor with dark and light mode support, timestamps, screenshots, and formatting tools'
+                    }
+                ];
+                this.currentImageIndex = 0;
+                this.init();
+            }
+
+            init() {
+                this.bindModalEvents();
+                this.bindScreenshotEvents();
+            }
+
+            bindScreenshotEvents() {
+                const screenshotItems = document.querySelectorAll('.screenshot-item');
+                screenshotItems.forEach((item, index) => {
+                    item.addEventListener('click', () => {
+                        const imageIndex = parseInt(item.dataset.index);
+                        this.openModal(imageIndex);
+                    });
+                });
+            }
+
+            bindModalEvents() {
+                const modal = document.getElementById('screenshotModal');
+                const closeBtn = modal.querySelector('.modal-close');
+                const backdrop = modal.querySelector('.modal-backdrop');
+                const prevBtn = modal.querySelector('.nav-prev');
+                const nextBtn = modal.querySelector('.nav-next');
+
+                closeBtn.addEventListener('click', () => this.closeModal());
+                backdrop.addEventListener('click', () => this.closeModal());
+                prevBtn.addEventListener('click', () => this.navigateModal(-1));
+                nextBtn.addEventListener('click', () => this.navigateModal(1));
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (modal.classList.contains('active')) {
+                        if (e.key === 'Escape') this.closeModal();
+                        if (e.key === 'ArrowLeft') this.navigateModal(-1);
+                        if (e.key === 'ArrowRight') this.navigateModal(1);
+                    }
+                });
+            }
+
+            openModal(index) {
+                this.currentImageIndex = index;
+                
+                const modal = document.getElementById('screenshotModal');
+                const modalImage = modal.querySelector('.modal-image');
+                const modalTitle = modal.querySelector('.modal-caption h3');
+                const modalDesc = modal.querySelector('.modal-caption p');
+
+                modalImage.src = this.screenshots[index].src;
+                modalImage.alt = this.screenshots[index].title;
+                modalTitle.textContent = this.screenshots[index].title;
+                modalDesc.textContent = this.screenshots[index].description;
+
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            closeModal() {
+                const modal = document.getElementById('screenshotModal');
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            navigateModal(direction) {
+                this.currentImageIndex = (this.currentImageIndex + direction + this.screenshots.length) % this.screenshots.length;
+                this.openModal(this.currentImageIndex);
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new ScreenshotGrid();
+        });
     </script>
 </body>
 </html>
