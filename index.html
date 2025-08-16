@@ -18,8 +18,7 @@
                 </div>
                 <ul class="nav-links">
                     <li><a href="#features">Features</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#screenshots">Screenshots</a></li>
+                    <li><a href="#screenshots">How It Works</a></li>
                     <li><a href="support.html">Support</a></li>
                     <li><a href="privacy-policy.html">Privacy</a></li>
                 </ul>
@@ -38,16 +37,22 @@
                 
                 <div class="cta-buttons">
                     <a href="https://chrome.google.com/webstore/detail/ldiobfbihagcmiogahhgbafkobghgman" class="btn btn-primary" id="install-btn" target="_blank">
-                        <span class="chrome-icon">🔧</span>
+                        <span class="chrome-icon">⬇️</span>
                         Add to Chrome — FREE
                     </a>
-                    <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+                    <a href="#screenshots" class="btn btn-secondary">See How It Works</a>
                 </div>
                 
-                <div class="hero-stats">
-                    <span>✅ Privacy First</span>
-                    <span>✅ No External Servers</span>
-                    <span>✅ Google Drive Sync</span>
+                <div class="risk-reduction">
+                    <p class="risk-free-title">Try Risk-Free</p>
+                    <ul class="risk-free-list">
+                        <li>✅ Chrome Web Store Approved</li>
+                        <li>🔒 Privacy First - No Data Collection</li>
+                        <li>⚡ Install in 30 seconds, uninstall anytime</li>
+                        <li>🚫 No account registration required</li>
+                        <li>☁️ Your data stays in YOUR Google Drive</li>
+                        <li>🆓 Free - no hidden costs</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -63,32 +68,32 @@
                     <div class="feature-card">
                         <div class="feature-icon">♻️</div>
                         <h3>Google Drive Sync</h3>
-                        <p>Your notes save in perfect Google Docs formatting in your Google Drive — ready anywhere, no exporting.</p>
+                        <p>Your notes save in perfect Google Docs formatting in your Google Drive. Ready anywhere, no exporting.</p>
                     </div>
                     
                     <div class="feature-card">
                         <div class="feature-icon">📸</div>
                         <h3>Screenshot Capture</h3>
-                        <p>Grab and embed video screenshots right into your notes with a single click — easy, no extra tools needed.</p>
+                        <p>Grab and embed video screenshots right into your notes with a single click. It's easy, no extra tools needed.</p>
                     </div>
                 
                     <div class="feature-card">
                         <div class="feature-icon">⏱️</div>
                         <h3>Clickable Timestamps</h3>
-                        <p>Jump back to the exact moment you were thinking of — context is never lost.</p>
+                        <p>Jump back to the exact moment you were thinking of so you don't forget.</p>
                     </div>
                 
                     <div class="feature-card">
                         <div class="feature-icon">🖥️</div>
                         <h3>One Screen, All You Need</h3>
-                        <p>Notes live beside the video — perfect fit on a laptop screen, no window-hopping.</p>
+                        <p>Notes live beside the video. Perfect fit on a laptop screen, no window-hopping.</p>
                     </div>
                     
                     <div class="feature-card">
-                        <div class="feature-icon">🗂️</div>
-                        <h3>Smart Organization</h3>
-                        <p>Auto-sorted in a “YouTube Notes” folder with clear file names and video metadata.</p>
-                    </div>
+                        <div class="feature-icon">🌗</div>
+                        <h3>Dark & Light Mode</h3>
+                        <p>Matches your device’s theme automatically. Easy on the eyes, day or night.</p>
+                    </div>                    
                     
                     <div class="feature-card">
                         <div class="feature-icon">🔒</div>
@@ -99,102 +104,73 @@
             </div>
         </section>
 
-        <!-- How It Works Section -->
-        <section id="how-it-works" class="how-it-works">
+
+        <!-- How OK Noted Works -->
+        <section id="screenshots" class="screenshots">
             <div class="container">
-                <h2 class="section-title">How It Works</h2>
-                <div class="steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3> ▶️ Watch</h3>
-                            <p>Open any YouTube video — lectures, tutorials, reviews, anything.
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>📝 Note</h3>
-                            <p>The extension button appears automatically on YouTube video pages. Use the text editor to write notes using ⏰ timestamp insertion and 📸 screenshot capture.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>♻️ Sync</h3>
-                            <p>Notes automatically save to your Google Drive for easy access anywhere.</p>
+                <h2 class="section-title">How OK Noted Works</h2>
+                <p class="section-subtitle">Watch the simple 3-step workflow that turns any YouTube video into organized, searchable notes</p>
+                
+                <!-- Step Navigation (moved above screenshot) -->
+                <div class="step-navigation">
+                    <button class="step-nav active" data-step="0" aria-label="Watch">
+                        <span class="step-emoji">🎥</span>
+                        <span class="step-title">Watch</span>
+                    </button>
+                    <button class="step-nav" data-step="1" aria-label="Note">
+                        <span class="step-emoji">📝</span>
+                        <span class="step-title">Note</span>
+                    </button>
+                    <button class="step-nav" data-step="2" aria-label="Sync">
+                        <span class="step-emoji">♻️</span>
+                        <span class="step-title">Sync</span>
+                    </button>
+                </div>
+                
+                <!-- Primary Demo -->
+                <div class="primary-demo">
+                    <div class="demo-screenshot">
+                        <img id="main-screenshot" 
+                             src="images/screenshots/youtube+editor screenshot2.png" 
+                             alt="OK Noted in action on YouTube" 
+                             class="main-screenshot-img">
+                        <div class="screenshot-overlay">
+                            <span class="view-full">Click to view full size</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Screenshots Section -->
-        <section id="screenshots" class="screenshots">
-            <div class="container">
-                <h2 class="section-title">See OK Noted in Action</h2>
-                <p class="section-subtitle">Real screenshots showing how OK Noted enhances your YouTube learning experience</p>
                 
-                <!-- Screenshot Grid -->
-                <div class="screenshot-grid">
-                    <!-- Feature Overview -->
-                    <div class="screenshot-item" data-index="0">
-                        <img src="images/screenshots/screenshots feature emphasized.png" 
-                             alt="OK Noted feature overview and capabilities" 
-                             class="screenshot-img">
-                        <div class="screenshot-overlay">
-                            <span class="view-full">Click to view full size</span>
-                        </div>
-                        <div class="screenshot-caption">
-                            <h3>Complete Feature Overview</h3>
-                            <p>Comprehensive look at OK Noted's powerful note-taking capabilities</p>
+                <!-- Step Content -->
+                <div class="step-content">
+                    <div class="workflow-step active" data-step="0">
+                        <div class="step-info">
+                            <h4>🎥 Watch any YouTube video</h4>
+                            <p>OK Noted works on tutorials, lectures, reviews, and podcasts. The extension appears automatically - no setup required.</p>
                         </div>
                     </div>
                     
-                    <!-- YouTube Integration -->
-                    <div class="screenshot-item" data-index="1">
-                        <img src="images/screenshots/youtube+editor screenshot2.png" 
-                             alt="OK Noted integrated with YouTube video player" 
-                             class="screenshot-img">
-                        <div class="screenshot-overlay">
-                            <span class="view-full">Click to view full size</span>
-                        </div>
-                        <div class="screenshot-caption">
-                            <h3>YouTube Integration</h3>
-                            <p>Take notes directly alongside any YouTube video without leaving the page</p>
+                    <div class="workflow-step" data-step="1">
+                        <div class="step-info">
+                            <h4>📝 Take timestamped notes with screenshots</h4>
+                            <p>Insert timestamps, capture screenshots, and format notes. Click any timestamp to jump back to that exact moment.</p>
                         </div>
                     </div>
                     
-                    <!-- Google Docs Export -->
-                    <div class="screenshot-item" data-index="2">
-                        <img src="images/screenshots/googledocs screenshot2.png" 
-                             alt="Notes automatically saved to Google Docs" 
-                             class="screenshot-img">
-                        <div class="screenshot-overlay">
-                            <span class="view-full">Click to view full size</span>
-                        </div>
-                        <div class="screenshot-caption">
-                            <h3>Google Docs Integration</h3>
-                            <p>Your notes automatically sync to Google Drive with perfect formatting</p>
+                    <div class="workflow-step" data-step="2">
+                        <div class="step-info">
+                            <h4>♻️ Auto-sync to Google Drive</h4>
+                            <p>Notes save automatically in perfect Google Docs format. Access anywhere, share with others, or continue editing later.</p>
                         </div>
                     </div>
                     
-                    <!-- Editor Interface -->
-                    <div class="screenshot-item" data-index="3">
-                        <img src="images/screenshots/lightanddarkmodesupport1040x800.png" 
-                             alt="OK Noted text editor interface" 
-                             class="screenshot-img">
-                        <div class="screenshot-overlay">
-                            <span class="view-full">Click to view full size</span>
-                        </div>
-                        <div class="screenshot-caption">
-                            <h3>Powerful Editor</h3>
-                            <p>Full-featured editor with dark and light mode support, timestamps, screenshots, and formatting tools</p>
-                        </div>
+                </div>
+                
+                <!-- Progress Indicator -->
+                <div class="workflow-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
                     </div>
+                    <p class="progress-text">Step 1 of 3</p>
                 </div>
             </div>
         </section>
@@ -236,17 +212,18 @@
         <!-- CTA Section -->
         <section class="cta-section">
             <div class="container">
-                <h2>Ready to Watch. Note. Sync?</h2>
-                <p>Join learners turning YouTube into a powerful workspace, right inside the video page.</p>
+                <h2>Ready to Transform Your YouTube Learning?</h2>
+                <p>Never lose another insight. Take notes with timestamps and screenshots, automatically saved to Google Drive.</p>
+                <div class="cta-trust-signals">
+                    <div class="trust-item">🆓 Free Forever</div>
+                    <div class="trust-item">🚫 No Account Required</div>
+                    <div class="trust-item">🔒 Privacy Protected</div>
+                </div>
+                
                 <a href="https://chrome.google.com/webstore/detail/ldiobfbihagcmiogahhgbafkobghgman" class="btn btn-primary btn-large" id="install-btn-2" target="_blank">
-                    <span class="chrome-icon">🔧</span>
-                    Install OK Noted - Free
+                    <span class="chrome-icon">⬇️</span>
+                    Install OK Noted — FREE
                 </a>
-                <p class="cta-note">
-                    ✅ Free &nbsp;&nbsp;&nbsp; 
-                    ✅ No Account Required &nbsp;&nbsp;&nbsp; 
-                    ✅ Privacy Protected
-                </p>
             </div>
         </section>
     </main>
@@ -302,48 +279,108 @@
         // Install buttons now link directly to Chrome Web Store
         // Extension ID: ldiobfbihagcmiogahhgbafkobghgman
 
-        // Screenshot Grid Functionality
-        class ScreenshotGrid {
+        // Progressive Reveal Workflow
+        class WorkflowShowcase {
             constructor() {
                 this.screenshots = [
                     {
-                        src: 'images/screenshots/screenshots feature emphasized.png',
-                        title: 'Complete Feature Overview',
-                        description: 'Comprehensive look at OK Noted\'s powerful note-taking capabilities'
+                        src: 'images/screenshots/youtube+editor screenshot2.png',
+                        title: 'Start with any YouTube video',
+                        description: 'OK Noted automatically appears when you\'re ready to take notes'
                     },
                     {
-                        src: 'images/screenshots/youtube+editor screenshot2.png',
-                        title: 'YouTube Integration',
-                        description: 'Take notes directly alongside any YouTube video without leaving the page'
+                        src: 'images/screenshots/screenshots feature emphasized.png',
+                        title: 'Take timestamped notes with screenshots',
+                        description: 'Click to insert timestamps, capture screenshots, and format your notes'
                     },
                     {
                         src: 'images/screenshots/googledocs screenshot2.png',
-                        title: 'Google Docs Integration',
-                        description: 'Your notes automatically sync to Google Drive with perfect formatting'
+                        title: 'Auto-sync to Google Drive',
+                        description: 'Your notes save automatically to Google Drive in perfect Google Docs format'
                     },
-                    {
-                        src: 'images/screenshots/lightanddarkmodesupport1040x800.png',
-                        title: 'Powerful Editor',
-                        description: 'Full-featured editor with dark and light mode support, timestamps, screenshots, and formatting tools'
-                    }
                 ];
-                this.currentImageIndex = 0;
+                this.currentStep = 0;
+                this.autoAdvanceTimer = null;
                 this.init();
             }
 
             init() {
+                this.bindStepNavigation();
                 this.bindModalEvents();
-                this.bindScreenshotEvents();
+                this.bindMainScreenshot();
+                this.startAutoAdvance();
             }
 
-            bindScreenshotEvents() {
-                const screenshotItems = document.querySelectorAll('.screenshot-item');
-                screenshotItems.forEach((item, index) => {
-                    item.addEventListener('click', () => {
-                        const imageIndex = parseInt(item.dataset.index);
-                        this.openModal(imageIndex);
+            bindStepNavigation() {
+                const stepNavs = document.querySelectorAll('.step-nav');
+                stepNavs.forEach((nav, index) => {
+                    nav.addEventListener('click', () => {
+                        this.goToStep(index);
+                        this.resetAutoAdvance();
                     });
                 });
+            }
+
+            bindMainScreenshot() {
+                const mainScreenshot = document.querySelector('.demo-screenshot');
+                if (mainScreenshot) {
+                    mainScreenshot.addEventListener('click', () => {
+                        this.openModal(this.currentStep);
+                    });
+                }
+            }
+
+            goToStep(stepIndex) {
+                if (stepIndex === this.currentStep) return;
+                
+                this.currentStep = stepIndex;
+                
+                // Update step navigation
+                document.querySelectorAll('.step-nav').forEach((nav, index) => {
+                    nav.classList.toggle('active', index === stepIndex);
+                });
+                
+                // Update workflow content
+                document.querySelectorAll('.workflow-step').forEach((step, index) => {
+                    step.classList.toggle('active', index === stepIndex);
+                });
+                
+                // Update main screenshot
+                const screenshot = this.screenshots[stepIndex];
+                const mainImg = document.getElementById('main-screenshot');
+                
+                if (mainImg) {
+                    mainImg.src = screenshot.src;
+                    mainImg.alt = screenshot.title;
+                }
+                
+                // Update progress bar
+                const progressFill = document.querySelector('.progress-fill');
+                const progressText = document.querySelector('.progress-text');
+                if (progressFill && progressText) {
+                    progressFill.style.width = `${((stepIndex + 1) / this.screenshots.length) * 100}%`;
+                    progressText.textContent = `Step ${stepIndex + 1} of ${this.screenshots.length}`;
+                }
+            }
+
+            startAutoAdvance() {
+                this.autoAdvanceTimer = setInterval(() => {
+                    const nextStep = (this.currentStep + 1) % this.screenshots.length;
+                    this.goToStep(nextStep);
+                }, 5000); // Advance every 5 seconds
+            }
+
+            resetAutoAdvance() {
+                if (this.autoAdvanceTimer) {
+                    clearInterval(this.autoAdvanceTimer);
+                    this.autoAdvanceTimer = null;
+                    // Restart after user interaction
+                    setTimeout(() => {
+                        if (!this.autoAdvanceTimer) {
+                            this.startAutoAdvance();
+                        }
+                    }, 10000); // Wait 10 seconds before restarting auto-advance
+                }
             }
 
             bindModalEvents() {
@@ -369,20 +406,23 @@
             }
 
             openModal(index) {
-                this.currentImageIndex = index;
+                const screenshot = this.screenshots[index];
                 
                 const modal = document.getElementById('screenshotModal');
                 const modalImage = modal.querySelector('.modal-image');
                 const modalTitle = modal.querySelector('.modal-caption h3');
                 const modalDesc = modal.querySelector('.modal-caption p');
 
-                modalImage.src = this.screenshots[index].src;
-                modalImage.alt = this.screenshots[index].title;
-                modalTitle.textContent = this.screenshots[index].title;
-                modalDesc.textContent = this.screenshots[index].description;
+                modalImage.src = screenshot.src;
+                modalImage.alt = screenshot.title;
+                modalTitle.textContent = screenshot.title;
+                modalDesc.textContent = screenshot.description;
 
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
+                
+                // Pause auto-advance while modal is open
+                this.resetAutoAdvance();
             }
 
             closeModal() {
@@ -392,14 +432,15 @@
             }
 
             navigateModal(direction) {
-                this.currentImageIndex = (this.currentImageIndex + direction + this.screenshots.length) % this.screenshots.length;
-                this.openModal(this.currentImageIndex);
+                const newIndex = (this.currentStep + direction + this.screenshots.length) % this.screenshots.length;
+                this.goToStep(newIndex);
+                this.openModal(newIndex);
             }
         }
 
         // Initialize when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
-            new ScreenshotGrid();
+            new WorkflowShowcase();
         });
     </script>
 </body>
