@@ -1,0 +1,25 @@
+{
+  "name": "ok-noted-website",
+  "version": "1.0.0",
+  "description": "This is the public website for the OK Noted Chrome extension, hosted on GitHub Pages.",
+  "main": "playwright-review.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidPei/ok-noted-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/DavidPei/ok-noted-website/issues"
+  },
+  "homepage": "https://github.com/DavidPei/ok-noted-website#readme",
+  "dependencies": {
+    "firebase": "^12.1.0",
+    "playwright": "^1.54.2"
+  }
+}

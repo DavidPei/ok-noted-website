@@ -4,7 +4,14 @@
       "Bash(move icons*.png .)",
       "Bash(rmdir:*)",
       "Bash(copy icons*.png .)",
-      "Bash(del icons*.png)"
+      "Bash(del icons*.png)",
+      "Bash(python:*)",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(npx playwright install:*)",
+      "Bash(node:*)",
+      "Bash(mkdir:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []
