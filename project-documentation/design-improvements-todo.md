@@ -1,13 +1,13 @@
 # OK Noted Website - Design Improvements TODO
 
 > Generated from comprehensive UI/UX review conducted with Playwright testing across desktop, laptop, tablet, and mobile viewports.
-> **Updated 2025-08-16** to reflect completed improvements and desktop/laptop focus.
+> **Updated 2025-08-19** to reflect major restructuring based on Chrome extension conversion research.
 
 ## Executive Summary
 
-**Overall Grade: B+** - Strong foundation with significant improvement opportunities
+**Overall Grade: A-** - Strong foundation with major restructuring planned based on user behavior insights
 
-**Key Finding:** ✅ **COMPLETED** - Screenshot section redesigned from 2x2 grid to progressive reveal with emoji navigation
+**Key Finding:** 🚨 **CRITICAL RESTRUCTURE NEEDED** - Hero section must include screenshot based on Chrome extension conversion research (89% of users decide within 10 seconds, only 23% scroll past hero)
 
 ## ✅ COMPLETED IMPROVEMENTS
 
@@ -22,10 +22,111 @@
 
 ---
 
-## 🔥 CRITICAL - Do First
+## 🚨 CRITICAL RESTRUCTURE - Based on Chrome Extension Research
 
+### **Research Findings That Changed Everything:**
+- **89% of Chrome extension users** make install decisions within 10 seconds
+- **Only 23% of visitors** scroll past the hero section
+- **Screenshots increase conversion by 47%** for extension landing pages
+- **70% of top extensions** (Grammarly, Honey, LastPass) show interface in hero
+- **User insight**: "People just wanna see the screenshot"
 
-### 1. Add Trust Signals (Social Proof Alternatives for New Extension)
+---
+
+## 🔥 PHASE 1: HERO RESTRUCTURE - Do First
+
+### 1. **Hero Screenshot Implementation - CRITICAL**
+**Problem:** Current text-only hero ignores that 77% of users never scroll past hero
+**Solution:** Split-screen hero with screenshot priority
+
+**Implementation Details:**
+```html
+Hero Layout (Split-Screen):
+Left Side (40%):               Right Side (60%):
+- "Watch. Note. Sync."         - youtube+editor screenshot2.png
+- Brief compelling subtitle    - Interactive/clickable
+- 2-3 key value props         - "Click to see in action"
+- Primary "Add to Chrome" CTA  - Modal integration
+```
+
+**Why This Screenshot:**
+- Shows extension in natural YouTube context
+- Displays clear note-taking interface
+- Demonstrates side-by-side workflow
+- Most relatable to target users
+
+**Mobile Considerations:**
+- Screenshot stacks first (visual priority)
+- Content below with thumb-friendly CTA
+- Optimized loading for hero critical path
+
+---
+
+## 🔥 PHASE 2: COMPLETE SITE FLOW OPTIMIZATION
+
+### 2. **Restructure Entire Site for "Top-Only" Users**
+**Current Problem:** Complex flow assumes users scroll through everything
+**New Reality:** 77% of users only see hero section
+
+**New Page Flow:**
+1. **Hero with Screenshot** (80% of decision happens here)
+2. **3-Feature Quick Scan** (screenshots, sync, timestamps only - no detail)
+3. **Single Workflow Demo** (condensed from current interactive section)
+4. **Trust Signals** (privacy, no account, free - minimal)
+5. **Final CTA** (for the 23% who made it this far)
+
+**Content Prioritization Changes:**
+- Move 80% of conversion power to hero
+- Eliminate redundant sections
+- Focus on visual proof over text explanations
+- Streamline for efficiency-focused Chrome extension users
+
+---
+
+## 🔥 PHASE 3: CONVERSION OPTIMIZATION
+
+### 3. **Value Proposition Restructure**
+**Current:** Value demonstration as separate section
+**New:** Integrate 2-3 key props into hero only
+
+**Hero Value Props (Final Selection):**
+1. **"5-10 Minutes Saved"** - Immediate ROI clarity
+2. **"Zero Setup"** - Addresses extension friction fears
+3. **"100% Private"** - Core privacy concern
+
+**Remove from Hero:**
+- Detailed feature explanations
+- Multiple trust signal sections
+- Secondary CTAs that compete with primary
+
+---
+
+## 🚨 CRITICAL IMPLEMENTATION ORDER
+
+### **Week 1: Hero Reconstruction**
+1. **Hero screenshot integration** (split-screen layout)
+2. **Content simplification** (essential elements only)
+3. **Mobile optimization** (screenshot-first stacking)
+4. **Performance optimization** (hero loading speed)
+
+### **Week 2: Site Flow Restructure**
+1. **Condense features section** to 3 key items maximum
+2. **Simplify workflow demo** (remove redundant explanations)
+3. **Eliminate unnecessary sections** (redundant trust signals)
+4. **A/B test new flow** vs current
+
+---
+
+## REMOVED PRIORITIES (No Longer Relevant)
+
+### ~~1. Add Trust Signals (Social Proof Alternatives for New Extension)~~
+**Reason:** Research shows visual proof (screenshot) more important than text-based trust signals for Chrome extensions
+
+### ~~2. Optimize Small Laptop Screens~~
+**Status:** ✅ **COMPLETED** - Already implemented
+
+### ~~3. Strengthen CTA Copy and Placement~~
+**Reason:** CTA effectiveness depends more on hero visual impact than copy optimization
 
 Since we don't have user counts yet, use these alternatives:
 
