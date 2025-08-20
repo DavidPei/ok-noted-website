@@ -40,18 +40,18 @@
                     <div class="hero-value-props">
                         <div class="hero-value-item">
                             <div class="value-icon">📸</div>
-                            <span class="value-highlight">Screenshot Capture</span>
-                            <span class="value-text">Grab key moments</span>
+                            <span class="value-highlight">Screenshots & <br> Timestamps</span>
+                            <span class="value-text">Remember key moments</span>
                         </div>
                         <div class="hero-value-item">
-                            <div class="value-icon">⏱️</div>
-                            <span class="value-highlight">Timestamped Notes</span>
-                            <span class="value-text">Jump back instantly</span>
+                            <div class="value-icon">📄</div>
+                            <span class="value-highlight">Google Docs & Drive Sync</span>
+                            <span class="value-text">Automatically synced</span>
                         </div>
                         <div class="hero-value-item">
                             <div class="value-icon">⏰</div>
                             <span class="value-highlight">Time Saved</span>
-                            <span class="value-text">5-10 minutes per session</span>
+                            <span class="value-text">5-10 mins per session</span>
                         </div>
                     </div>
                     
@@ -90,12 +90,18 @@
                 <!-- Hero Screenshot (Right Side - 60%) -->
                 <div class="hero-screenshot">
                     <div class="screenshot-container">
-                        <img src="images/screenshots/youtube+editor screenshot2.png" 
+                        <img src="images/screenshots/Screenshot - Watch.png" 
                              alt="OK Noted extension interface on YouTube showing note-taking and screenshot features" 
                              class="hero-screenshot-img"
-                             id="hero-main-screenshot">
+                             id="hero-rotating-screenshot">
                         <div class="screenshot-overlay">
-                            <span class="view-full">Click to see in action</span>
+                            <span class="view-full">Click to view full size</span>
+                        </div>
+                        <!-- Progress dots for rotating screenshots -->
+                        <div class="hero-screenshot-dots">
+                            <span class="screenshot-dot active" data-step="0"></span>
+                            <span class="screenshot-dot" data-step="1"></span>
+                            <span class="screenshot-dot" data-step="2"></span>
                         </div>
                     </div>
                 </div>
@@ -106,7 +112,8 @@
         <section id="features" class="features">
             <div class="container">
                 <h2 class="section-title">Why OK Noted?</h2>
-                <p class="section-subtitle">Purpose-built for learning on YouTube — faster capture, zero tab-switching, and notes you can actually find later.</p>
+                <p class="section-subtitle">If it's worth watching, it's worth noting. <br>
+                    OK Noted keeps it all in one place, all in one screen.</p>
                 
                 <div class="features-grid">
 
@@ -168,7 +175,7 @@
                                     
                                 </div>
                             </div>
-                            <p class="step-description">OK Noted appears automatically on all YouTube videos - no setup required.</p>
+                            <p class="step-description">OK Noted appears automatically on all YouTube videos - no setup required. Just click "📝 Take Notes" on any YouTube video to get started. </p>
                         </div>
                         
                         <div class="workflow-card" data-step="1">
@@ -267,7 +274,7 @@
                     <h4>OK Noted</h4>
                     <p class="tagline">Watch. Note. Sync.</p>
                     <p>If it's worth watching, it's worth noting. <br>
-                        OK Noted keeps it all in once place.</p>
+                        OK Noted keeps it all in one place, all on one screen.</p>
                 </div>
                 
                 <div class="footer-section">
@@ -297,14 +304,10 @@
         <div class="modal-content">
             <button class="modal-close">&times;</button>
             <img class="modal-image" src="" alt="">
-            <div class="modal-caption">
-                <h3></h3>
-                <p></p>
-            </div>
-            <div class="modal-navigation">
-                <button class="nav-prev">&larr; Previous</button>
-                <button class="nav-next">Next &rarr;</button>
-            </div>
+            
+            <!-- Simple Arrow Navigation -->
+            <button class="nav-arrow nav-prev">&larr;</button>
+            <button class="nav-arrow nav-next">&rarr;</button>
         </div>
     </div>
 
@@ -317,17 +320,17 @@
             constructor() {
                 this.screenshots = [
                     {
-                        src: 'images/screenshots/youtube+editor screenshot2.png',
+                        src: 'images/screenshots/Screenshot - Watch.png',
                         title: 'Start with any YouTube video',
                         description: 'OK Noted automatically appears when you\'re ready to take notes'
                     },
                     {
-                        src: 'images/screenshots/screenshots feature emphasized.png',
+                        src: 'images/screenshots/Screenshot - Note.png',
                         title: 'Take timestamped notes with screenshots',
                         description: 'Click to insert timestamps, capture screenshots, and format your notes'
                     },
                     {
-                        src: 'images/screenshots/googledocs screenshot2.png',
+                        src: 'images/screenshots/Screenshot - Sync.png',
                         title: 'Auto-sync to Google Drive',
                         description: 'Your notes save automatically to Google Drive in perfect Google Docs format'
                     },
@@ -366,9 +369,18 @@
                 const heroScreenshot = document.querySelector('.hero-screenshot .screenshot-container');
                 if (heroScreenshot) {
                     heroScreenshot.addEventListener('click', () => {
-                        this.openModal(0); // Show first screenshot (YouTube editor)
+                        this.openModal(this.currentStep); // Show current screenshot
                     });
                 }
+                
+                // Hero screenshot dots navigation
+                const heroDots = document.querySelectorAll('.screenshot-dot');
+                heroDots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        this.goToStep(index);
+                        this.resetAutoAdvance();
+                    });
+                });
             }
 
             goToStep(stepIndex) {
@@ -381,7 +393,7 @@
                     card.classList.toggle('active', index === stepIndex);
                 });
                 
-                // Update main screenshot
+                // Update main screenshot in workflow section
                 const screenshot = this.screenshots[stepIndex];
                 const mainImg = document.getElementById('main-screenshot');
                 
@@ -390,7 +402,17 @@
                     mainImg.alt = screenshot.title;
                 }
                 
-                // Progress indicator removed in condensed version
+                // Update hero screenshot
+                const heroImg = document.getElementById('hero-rotating-screenshot');
+                if (heroImg) {
+                    heroImg.src = screenshot.src;
+                    heroImg.alt = screenshot.title;
+                }
+                
+                // Update hero screenshot dots
+                document.querySelectorAll('.screenshot-dot').forEach((dot, index) => {
+                    dot.classList.toggle('active', index === stepIndex);
+                });
             }
 
             startAutoAdvance() {
@@ -440,13 +462,9 @@
                 
                 const modal = document.getElementById('screenshotModal');
                 const modalImage = modal.querySelector('.modal-image');
-                const modalTitle = modal.querySelector('.modal-caption h3');
-                const modalDesc = modal.querySelector('.modal-caption p');
 
                 modalImage.src = screenshot.src;
                 modalImage.alt = screenshot.title;
-                modalTitle.textContent = screenshot.title;
-                modalDesc.textContent = screenshot.description;
 
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
@@ -454,6 +472,8 @@
                 // Pause auto-advance while modal is open
                 this.resetAutoAdvance();
             }
+
+            // Removed step indicators and navigation button updates - using simple arrows now
 
             closeModal() {
                 const modal = document.getElementById('screenshotModal');
@@ -463,8 +483,54 @@
 
             navigateModal(direction) {
                 const newIndex = (this.currentStep + direction + this.screenshots.length) % this.screenshots.length;
-                this.goToStep(newIndex);
-                this.openModal(newIndex);
+                this.currentStep = newIndex;
+                
+                // Update the modal content without closing/reopening
+                const screenshot = this.screenshots[newIndex];
+                const modal = document.getElementById('screenshotModal');
+                const modalImage = modal.querySelector('.modal-image');
+                const modalTitle = modal.querySelector('.modal-caption h3');
+                const modalDesc = modal.querySelector('.modal-caption p');
+
+                modalImage.src = screenshot.src;
+                modalImage.alt = screenshot.title;
+                modalTitle.textContent = screenshot.title;
+                modalDesc.textContent = screenshot.description;
+
+                // Update step indicators and navigation
+                this.updateModalStepIndicators(newIndex);
+                this.updateNavigationButtons(newIndex);
+                
+                // Also update the main page content
+                this.updateMainPageContent(newIndex);
+            }
+
+            updateMainPageContent(stepIndex) {
+                // Update workflow cards
+                document.querySelectorAll('.workflow-card').forEach((card, index) => {
+                    card.classList.toggle('active', index === stepIndex);
+                });
+                
+                // Update main screenshot in workflow section
+                const screenshot = this.screenshots[stepIndex];
+                const mainImg = document.getElementById('main-screenshot');
+                
+                if (mainImg) {
+                    mainImg.src = screenshot.src;
+                    mainImg.alt = screenshot.title;
+                }
+                
+                // Update hero screenshot
+                const heroImg = document.getElementById('hero-rotating-screenshot');
+                if (heroImg) {
+                    heroImg.src = screenshot.src;
+                    heroImg.alt = screenshot.title;
+                }
+                
+                // Update hero screenshot dots
+                document.querySelectorAll('.screenshot-dot').forEach((dot, index) => {
+                    dot.classList.toggle('active', index === stepIndex);
+                });
             }
         }
 

@@ -12,7 +12,9 @@
       "Bash(node:*)",
       "Bash(mkdir:*)",
       "Bash(git add:*)",
-      "WebSearch"
+      "WebSearch",
+      "WebFetch(domain:css-tricks.com)",
+      "WebFetch(domain:fullystacked.net)"
     ],
     "deny": [],
     "ask": []
