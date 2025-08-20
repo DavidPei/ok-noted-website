@@ -29,38 +29,51 @@
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <div class="hero-content">
-                <h2>Watch. Note. Sync.</h2>
-                <h3 class="hero-subtitle">If it’s worth watching, it’s worth noting — OK Noted keeps it all in one place.</h3>
-                <p class="hero-subtitle">Turn any YouTube video into a powerful, searchable set of notes: <br> screenshots, timestamps, and instant Google Drive sync. 
-                </p>
-                
-                <!-- Hero Value Demonstration -->
-                <div class="hero-value-demonstration">
+            <div class="hero-container">
+                <!-- Hero Content (Left Side - 40%) -->
+                <div class="hero-content">
+                    <h2>Watch. Note. Sync.</h2>
+                    <p class="hero-description">Turn any YouTube video into powerful, searchable notes with screenshots, timestamps, and instant Google Drive sync.</p>
+                    
+                    <!-- Simplified Value Props -->
                     <div class="hero-value-props">
-                        <div class="hero-value-stat">
-                            <h4>5-10 Minutes</h4>
-                            <p>Saved per YouTube study session</p>
+                        <div class="hero-value-item">
+                            <div class="value-icon">⏱️</div>
+                            <span class="value-highlight">5-10 Minutes</span>
+                            <span class="value-text">Saved per session</span>
                         </div>
-                        <div class="hero-value-stat">
-                            <h4>Zero Setup</h4>
-                            <p>Works instantly on any YouTube video</p>
+                        <div class="hero-value-item">
+                            <div class="value-icon">🚀</div>
+                            <span class="value-highlight">Zero Setup</span>
+                            <span class="value-text">Works instantly</span>
                         </div>
-                        <div class="hero-value-stat">
-                            <h4>100% Private</h4>
-                            <p>Your notes never leave your Google Drive</p>
+                        <div class="hero-value-item">
+                            <div class="value-icon">🔒</div>
+                            <span class="value-highlight">100% Private</span>
+                            <span class="value-text">Your Google Drive</span>
                         </div>
                     </div>
-                </div>
-                
-                <div class="cta-buttons">
-                    <div class="cta-primary-wrapper">
-                        <a href="https://chrome.google.com/webstore/detail/ldiobfbihagcmiogahhgbafkobghgman" class="btn btn-primary" id="install-btn" target="_blank">
+                    
+                    <!-- Primary CTA -->
+                    <div class="hero-cta">
+                        <a href="https://chrome.google.com/webstore/detail/ldiobfbihagcmiogahhgbafkobghgman" class="btn btn-primary btn-large" id="hero-install-btn" target="_blank">
                             <span class="chrome-icon">⬇️</span>
                             Add to Chrome — FREE
                         </a>
                     </div>
-                    <a href="#screenshots" class="btn btn-secondary">See How It Works</a>
+                </div>
+                
+                <!-- Hero Screenshot (Right Side - 60%) -->
+                <div class="hero-screenshot">
+                    <div class="screenshot-container">
+                        <img src="images/screenshots/youtube+editor screenshot2.png" 
+                             alt="OK Noted extension interface on YouTube showing note-taking and screenshot features" 
+                             class="hero-screenshot-img"
+                             id="hero-main-screenshot">
+                        <div class="screenshot-overlay">
+                            <span class="view-full">Click to see in action</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -178,15 +191,15 @@
                 <h2 class="section-title">Common Questions</h2>
                 <div class="faq-grid">
                     <details>
-                        <summary>Is my data secure?</summary>
+                        <summary><span class="summary-text">Is my data secure?</span></summary>
                         <p>Absolutely. Your notes save directly to YOUR Google Drive. We never see your data.</p>
                     </details>
                     <details>
-                        <summary>Will this slow down YouTube?</summary>
+                        <summary><span class="summary-text">Will this slow down YouTube?</span></summary>
                         <p>No. OK Noted is optimized for performance and won't affect video playback.</p>
                     </details>
                     <details>
-                        <summary>Do I need to create an account?</summary>
+                        <summary><span class="summary-text">Do I need to create an account?</span></summary>
                         <p>No. OK Noted works with your existing Google account. No additional registration required.</p>
                     </details>
                 </div>
@@ -312,6 +325,14 @@
                 if (mainScreenshot) {
                     mainScreenshot.addEventListener('click', () => {
                         this.openModal(this.currentStep);
+                    });
+                }
+                
+                // Hero screenshot modal integration
+                const heroScreenshot = document.querySelector('.hero-screenshot .screenshot-container');
+                if (heroScreenshot) {
+                    heroScreenshot.addEventListener('click', () => {
+                        this.openModal(0); // Show first screenshot (YouTube editor)
                     });
                 }
             }

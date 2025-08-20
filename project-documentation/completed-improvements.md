@@ -223,4 +223,56 @@ Based on this successful transformation:
 
 ---
 
+## 🎯 FAQ Section Icon Centering Fix (2025-08-20)
+
+### Problem Solved
+**Issue**: Plus (+) and minus (-) icons in FAQ section were misaligned within their circular backgrounds
+- Icons appeared "too high" and "too small"
+- Inconsistent across browsers and screen sizes
+- Created unprofessional appearance
+
+### Technical Challenge
+Multiple CSS approaches failed due to font baseline metrics:
+1. **Flexbox centering**: Didn't account for character positioning
+2. **CSS Grid baseline**: Conflicts with `<summary>` element behavior  
+3. **Line-height matching**: Font metrics still caused visual misalignment
+4. **Standard centering**: Mathematical centering ≠ visual centering for text characters
+
+### Solution Implemented
+**CSS Grid + Transform Compensation**:
+```css
+.faq-grid summary::after {
+    display: grid;
+    place-items: center;
+    font-size: 16px;              /* Increased from 14px */
+    font-family: Arial, sans-serif;
+    transform: translateY(-0.5px); /* Baseline compensation */
+}
+```
+
+### Key Improvements
+- **Visual Centering**: Perfect alignment both horizontally and vertically
+- **Optimal Font Sizes**: 16px/15px/14px across desktop/tablet/mobile
+- **Cross-Browser Consistency**: Works identically across all browsers
+- **Responsive Scaling**: Proportional adjustments for different circle sizes
+
+### Technical Implementation
+- **Files Modified**: `css/style.css` (lines 1679-1722, responsive breakpoints)
+- **HTML Updates**: Added `<span class="summary-text">` wrappers for proper layout
+- **Alternative Methods**: 5 fallback approaches documented in CSS comments
+- **Testing**: Validated across Chrome, Firefox, Safari, Edge
+
+### User Experience Impact
+- **Professional Appearance**: Perfectly aligned icons enhance visual credibility
+- **Better Readability**: Larger, clearly visible icons
+- **Trust Building**: Attention to detail builds user confidence
+- **Consistency**: Uniform experience across all devices
+
+### Documentation Created
+- **Detailed Technical Doc**: `faq-icon-centering-fix.md` with complete implementation details
+- **Alternative Solutions**: Multiple fallback methods for future reference
+- **Maintenance Notes**: Guidelines for future font or design changes
+
+---
+
 *This documentation serves as a reference for future improvements and demonstrates the systematic approach to UX enhancement.*
