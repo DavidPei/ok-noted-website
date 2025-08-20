@@ -435,7 +435,7 @@ After implementing changes, monitor:
 
 - Playwright test screenshots saved in: `/design-review-screenshots/`
 - Original design review conducted: 2025-08-16
-- Chrome Web Store listing: https://chrome.google.com/webstore/detail/ldiobfbihagcmiogahhgbafkobghgman
+- Chrome Web Store listing: https://chrome.google.com/webstore/detail/epnnljkmnmmhdgphfifmegjbkjebpchd
 
 ---
 

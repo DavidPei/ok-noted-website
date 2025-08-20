@@ -313,6 +313,10 @@ header {
     transition: opacity 0.4s ease;
 }
 
+.hero-screenshot-img.fading {
+    opacity: 0;
+}
+
 /* Hero Screenshot Progress Dots - Subtle */
 .hero-screenshot-dots {
     position: absolute;
@@ -939,6 +943,11 @@ section {
     width: 100%;
     height: auto;
     display: block;
+    transition: opacity 0.4s ease;
+}
+
+.main-screenshot-img.fading {
+    opacity: 0;
 }
 
 

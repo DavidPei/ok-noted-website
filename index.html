@@ -203,7 +203,7 @@
                     <div class="screenshot-display">
                         <div class="demo-screenshot">
                             <img id="main-screenshot" 
-                                 src="images/screenshots/youtube+editor screenshot2.png" 
+                                 src="images/screenshots/Screenshot - Watch.png" 
                                  alt="OK Noted in action on YouTube" 
                                  class="main-screenshot-img">
                             <div class="screenshot-overlay">
@@ -337,7 +337,22 @@
                 ];
                 this.currentStep = 0;
                 this.autoAdvanceTimer = null;
+                this.preloadImages();
                 this.init();
+            }
+
+            preloadImages() {
+                // Preload all screenshot images to prevent blank flashes during rotation
+                this.screenshots.forEach(screenshot => {
+                    const img = new Image();
+                    img.onload = () => {
+                        console.log(`Preloaded: ${screenshot.src}`);
+                    };
+                    img.onerror = () => {
+                        console.warn(`Failed to preload: ${screenshot.src}`);
+                    };
+                    img.src = screenshot.src;
+                });
             }
 
             init() {
@@ -398,15 +413,49 @@
                 const mainImg = document.getElementById('main-screenshot');
                 
                 if (mainImg) {
-                    mainImg.src = screenshot.src;
-                    mainImg.alt = screenshot.title;
+                    // Fade out, change image, then fade in
+                    mainImg.classList.add('fading');
+                    
+                    setTimeout(() => {
+                        mainImg.onerror = () => {
+                            console.warn(`Failed to load main screenshot: ${screenshot.src}`);
+                            // Fallback to first screenshot if current one fails
+                            if (stepIndex !== 0) {
+                                mainImg.src = this.screenshots[0].src;
+                            }
+                        };
+                        mainImg.src = screenshot.src;
+                        mainImg.alt = screenshot.title;
+                        
+                        // Fade back in once loaded
+                        mainImg.onload = () => {
+                            mainImg.classList.remove('fading');
+                        };
+                    }, 250);
                 }
                 
                 // Update hero screenshot
                 const heroImg = document.getElementById('hero-rotating-screenshot');
                 if (heroImg) {
-                    heroImg.src = screenshot.src;
-                    heroImg.alt = screenshot.title;
+                    // Fade out, change image, then fade in
+                    heroImg.classList.add('fading');
+                    
+                    setTimeout(() => {
+                        heroImg.onerror = () => {
+                            console.warn(`Failed to load hero screenshot: ${screenshot.src}`);
+                            // Fallback to first screenshot if current one fails
+                            if (stepIndex !== 0) {
+                                heroImg.src = this.screenshots[0].src;
+                            }
+                        };
+                        heroImg.src = screenshot.src;
+                        heroImg.alt = screenshot.title;
+                        
+                        // Fade back in once loaded
+                        heroImg.onload = () => {
+                            heroImg.classList.remove('fading');
+                        };
+                    }, 250);
                 }
                 
                 // Update hero screenshot dots
