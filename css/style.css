@@ -1942,10 +1942,12 @@ footer {
     list-style: none;
     display: flex;
     align-items: baseline;
-    gap: 1rem;
+    justify-content: space-between;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
     line-height: 1.4;
+    width: 100%;
+    padding: 0;
 }
 
 .faq-grid summary::-webkit-details-marker {
@@ -1956,10 +1958,7 @@ footer {
     display: none;
 }
 
-.faq-grid summary .summary-text {
-    flex: 1;
-    line-height: 1.4;
-}
+/* Removed .summary-text wrapper - text now directly in summary */
 
 .faq-grid summary::after {
     content: '+';
@@ -2026,11 +2025,9 @@ footer {
 @keyframes fadeInDown {
     from {
         opacity: 0;
-        transform: translateY(-10px);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
